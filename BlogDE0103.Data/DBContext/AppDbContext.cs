@@ -15,7 +15,7 @@ namespace BlogDE0103.Data.DBContext
         //add-migration InitialMigration -p ELIXStreaming.Infrastructure -c AppDbContext -o Migrations -s ELIXStreaming.Infrastructure
 
 
-        //add-migration InitialMigration -p BlogDE0103.Data -c AppDbContext -o Migrations -s BlogDE0103.Data
+        //add-migration InitialMigration -p BlogDE0103.Infrastructure -c AppDbContext -o Migrations -s BlogDE0103.Infrastructure
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
 
