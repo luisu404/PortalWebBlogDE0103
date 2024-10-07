@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace BlogDE0103.Data.Migrations
+namespace BlogDE0103.Infrastructure.Migrations
 {
     public partial class InitialMigration : Migration
     {
@@ -140,6 +140,7 @@ namespace BlogDE0103.Data.Migrations
                     NombreUsuario = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Contrasena = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     FechaRegistro = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Estado = table.Column<bool>(type: "bit", nullable: false),
                     Eliminado = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
@@ -276,12 +277,12 @@ namespace BlogDE0103.Data.Migrations
             migrationBuilder.InsertData(
                 table: "Roles",
                 columns: new[] { "ID", "Descripcion", "Eliminado", "Nombre" },
-                values: new object[] { 2, "Tiene acceso a ciertas areas del sistema, como agregar las actividades, las noticias, los avisos. Pueden actualizar informaciones", false, "AdminLevel1" });
+                values: new object[] { 2, "Tiene acceso a ciertas areas del sistema, como agregar las actividades, las noticias, los avisos. Pueden agregar y actualizar ciertas informaciones", false, "AdminLevel1" });
 
             migrationBuilder.InsertData(
                 table: "Roles",
                 columns: new[] { "ID", "Descripcion", "Eliminado", "Nombre" },
-                values: new object[] { 3, "Tiene acceso a ciertas areas del sistema, como ver las actividades internas, las noticias internas, los avisos internos. Pueden actualizar informaciones", false, "AdminLevel2" });
+                values: new object[] { 3, "Tiene acceso a ciertas areas del sistema, como ver las actividades internas, las noticias internas, los avisos internos. No pueden agregar ni actualizar informaciones", false, "AdminLevel2" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Actividades_IDPublicoObjetivo",

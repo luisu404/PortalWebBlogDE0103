@@ -9,10 +9,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace BlogDE0103.Data.Migrations
+namespace BlogDE0103.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241004203502_InitialMigration")]
+    [Migration("20241007201531_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -338,14 +338,14 @@ namespace BlogDE0103.Data.Migrations
                         new
                         {
                             ID = 2,
-                            Descripcion = "Tiene acceso a ciertas areas del sistema, como agregar las actividades, las noticias, los avisos. Pueden actualizar informaciones",
+                            Descripcion = "Tiene acceso a ciertas areas del sistema, como agregar las actividades, las noticias, los avisos. Pueden agregar y actualizar ciertas informaciones",
                             Eliminado = false,
                             Nombre = "AdminLevel1"
                         },
                         new
                         {
                             ID = 3,
-                            Descripcion = "Tiene acceso a ciertas areas del sistema, como ver las actividades internas, las noticias internas, los avisos internos. Pueden actualizar informaciones",
+                            Descripcion = "Tiene acceso a ciertas areas del sistema, como ver las actividades internas, las noticias internas, los avisos internos. No pueden agregar ni actualizar informaciones",
                             Eliminado = false,
                             Nombre = "AdminLevel2"
                         });
@@ -428,6 +428,9 @@ namespace BlogDE0103.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Eliminado")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Estado")
                         .HasColumnType("bit");
 
                     b.Property<DateTime>("FechaNacimiento")
